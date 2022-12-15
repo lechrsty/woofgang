@@ -9,8 +9,11 @@ export const EditDogForm = () => {
 
     const [dropdownGender, setDropdownGender] = useState([])
     const [dropdownEnergyLevel, setDropdownEnergyLevel] = useState([])
-
     const { dogId } = useParams()
+
+    const [singleDog, setSingleDog] = useState([])
+
+    
     const [dog, setDog] = useState({
         name: "",
         image: "",
@@ -48,15 +51,25 @@ export const EditDogForm = () => {
             .then(response => response.json())
             .then((arrayOfDogs) => {
                 const dogObject = arrayOfDogs[0]
-                setDog(dogObject)
+                setSingleDog(dogObject)
             })
-    }, [dogId])
+    }, [] )
 
+    useEffect(
+        () => {
+            fetch(`http://localhost:8088/dogs/${dogId}`)
+            .then(res => res.json())
+            .then((data) => {
+                setDog(data)
+            })
+        },
+        [dogId]
+    )
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-        fetch(`http://localhost:8088/dogs/${dogId}`, {
+        fetch(`http://localhost:8088/dogs/${dog.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -153,7 +166,7 @@ export const EditDogForm = () => {
                         copy.genderId = parseInt(evt.target.value)
                         setDog(copy)
                     }}>
-                        <option value={0}>{dog?.gender?.type}</option>
+                        <option defaultValue="">{singleDog?.gender?.type}</option>
                         {
                             dropdownGender.map((gender) =>
                             <option key={`genderId--${gender?.id}`} value={gender?.id}>{gender?.type}</option>
@@ -170,7 +183,7 @@ export const EditDogForm = () => {
                         copy.energyLevelId = parseInt(evt.target.value)
                         setDog(copy)
                     }}>
-                        <option value={0}>{dog?.energyLevel?.type}</option>
+                        <option defaultValue="">{singleDog?.energyLevel?.type}</option>
                         {
                             dropdownEnergyLevel.map((energyLevel) =>
                             <option key={`energyLevelId--${energyLevel?.id}`} value={energyLevel?.id}>{energyLevel?.type}</option>

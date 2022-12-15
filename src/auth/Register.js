@@ -11,7 +11,6 @@ export const Register = (props) => {
     
     let navigate = useNavigate()
     const [dropdownCity, setDropdownCity] = useState([])
-    
 
     const [owner, setOwner] = useState({
         name: "",

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Input from 'react-phone-number-input/input'
 
 
@@ -7,6 +7,9 @@ export const ProfileForm = () => {
 
     let navigate = useNavigate()
 
+   const {ownerId} = useParams()
+
+    const [singleProfile, setSingleProfile] = useState([])
     const [profile, setProfile] = useState({
         name: "",
         image: "",
@@ -14,10 +17,6 @@ export const ProfileForm = () => {
         description: "",
         phoneNumber: 0,
         cityId: 0
-        // city: {
-        //     id: 0,
-        //     name: ""
-        //   }
     })
 
     const localWoofGangUser = localStorage.getItem("woofGang_user")
@@ -39,10 +38,18 @@ export const ProfileForm = () => {
         fetch(`http://localhost:8088/owners?id=${woofGangUserObject.id}&_expand=city`)
             .then(response => response.json())
             .then((data) => {
-                const ownerObject = data[0]
-                setProfile(ownerObject)
+                const singleProfile = data[0]
+                setSingleProfile(singleProfile)
             })
-    }, [])
+    }, [] )
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/owners/${woofGangUserObject.id}`)
+            .then(response => response.json())
+            .then((data) => {
+                setProfile(data)
+            })
+    }, [ownerId])
 
 
     const handleSaveButtonClick = (event) => {
@@ -150,7 +157,7 @@ export const ProfileForm = () => {
                         copy.cityId = parseInt(evt.target.value)
                         setProfile(copy)
                     }}>
-                        <option value={0}>{profile?.city?.name}</option>
+                        <option defaultValue="">{singleProfile?.city?.name}</option>
                         {
                             dropdownCity.map((city) =>
                             <option key={`cityId--${city?.id}`} value={city?.id}>{city?.name}</option>
