@@ -1,0 +1,25 @@
+.dogs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.dog {
+    background-color: rgb(0, 161, 225);
+    border: 2px dotted rgb(0, 84, 174);
+    margin: 0.5rem;
+    color: black;
+    padding: 0.5rem;
+}
+
+.dog_header {
+    font-size: larger;
+    font-weight: 700;
+    line-height: 3rem;
+}
+
+.dog_footer {
+    margin: 1rem 0 0.25rem 0;
+    font-style: oblique;
+}

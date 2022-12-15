@@ -1,0 +1,31 @@
+import { Outlet, Route, Routes } from "react-router-dom"
+import { CreateDogForm } from "../dogs/CreateDogForm"
+import { EditDogForm } from "../dogs/EditDogForm"
+import { UserDogList } from "../dogs/UserDogList"
+import { ProfileForm } from "../profileForm/ProfileForm"
+
+export const UserViews = () => {
+	return (
+        <Routes>
+            <Route path="/" element={
+                <>
+                    <Outlet />
+                </>
+            }>
+
+            <Route path="profile" element={ <ProfileForm /> } />
+            <Route path="mydogs" element={ <UserDogList /> } />
+            <Route path="editdog/:dogId" element={ <EditDogForm /> } />
+            <Route path="createdog" element={ <CreateDogForm /> } />
+
+
+
+
+
+
+
+                
+            </Route>
+        </Routes>
+    )
+}
