@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Input from 'react-phone-number-input/input'
+import 'react-phone-number-input/style.css'
+import SaveAltIcon from '@mui/icons-material/SaveAlt'
+import "./ProfileForm.css"
+
+
 
 
 export const ProfileForm = () => {
 
     let navigate = useNavigate()
+    const { ownerId } = useParams()
 
-   const {ownerId} = useParams()
+    // const [inputPhoneNumber, setInputPhoneNumber] = useState(0)
 
     const [singleProfile, setSingleProfile] = useState([])
     const [profile, setProfile] = useState({
@@ -15,7 +21,7 @@ export const ProfileForm = () => {
         image: "",
         email: "",
         description: "",
-        phoneNumber: 0,
+        // phoneNumber: 0,
         cityId: 0
     })
 
@@ -26,10 +32,10 @@ export const ProfileForm = () => {
     useEffect(
         () => {
             fetch(`http://localhost:8088/cities`)
-            .then(res => res.json())
-            .then((data) => {
-                setDropdownCity(data)
-            })
+                .then(res => res.json())
+                .then((data) => {
+                    setDropdownCity(data)
+                })
         },
         []
     )
@@ -41,7 +47,7 @@ export const ProfileForm = () => {
                 const singleProfile = data[0]
                 setSingleProfile(singleProfile)
             })
-    }, [] )
+    }, [])
 
     useEffect(() => {
         fetch(`http://localhost:8088/owners/${woofGangUserObject.id}`)
@@ -89,21 +95,22 @@ export const ProfileForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
-                    <label htmlFor="image">Profile Photo:</label>
-                    <input 
-                        type="file"
+                    <label htmlFor="imageLocation">Profile Photo:</label>
+                    <input
+                        type="text"
                         className="form-control"
+                        value={profile.image}
                         onChange={
                             (evt) => {
                                 const copy = { ...profile }
-                                copy.image = evt.target.value
+                                copy.imageLocation = evt.target.value
                                 setProfile(copy)
                             }
                         } />
                 </div>
-            </fieldset>
+            </fieldset> */}
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="description">Description:</label>
@@ -134,7 +141,7 @@ export const ProfileForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
                     <label htmlFor="phoneNumber">Phone Number:</label>
                     <input type="number"
@@ -148,29 +155,29 @@ export const ProfileForm = () => {
                             }
                         } />
                 </div>
-            </fieldset>
+            </fieldset> */}
             <fieldset>
-                    <div className="form-control">
+                <div className="form-control">
                     <label htmlFor="cityId">City: </label>
                     <select onChange={(evt) => {
-                        const copy = {...profile}
+                        const copy = { ...profile }
                         copy.cityId = parseInt(evt.target.value)
                         setProfile(copy)
                     }}>
                         <option defaultValue="">{singleProfile?.city?.name}</option>
                         {
                             dropdownCity.map((city) =>
-                            <option key={`cityId--${city?.id}`} value={city?.id}>{city?.name}</option>
+                                <option key={`cityId--${city?.id}`} value={city?.id}>{city?.name}</option>
                             )
                         }
                     </select>
-                    </div>
-                </fieldset>
-            <button
+                </div>
+            </fieldset>
+            <SaveAltIcon
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="saveButton" fontSize="large">
                 Save Profile
-            </button>
+            </SaveAltIcon>
         </form>
 
     )

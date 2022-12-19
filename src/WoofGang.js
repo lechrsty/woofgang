@@ -12,8 +12,6 @@ export const WoofGang = () => {
 	return <Routes>
 		<Route path="/login" element={<Login />} />
 		<Route path="/register" element={<Register />} />
-		<Route path="/dogs" element={<DogsList />} />
-
 		<Route path="/home" element={<></>} />
 
 

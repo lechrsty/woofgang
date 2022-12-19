@@ -12,8 +12,6 @@ export const AnonymousViews = () => {
                     <Outlet />
                 </>
             }>
-
-                <Route path="dogs" element={ <DogsList /> } />
             </Route>
         </Routes>
     )

@@ -6,10 +6,7 @@ export const AnonymousNav = () => {
 
     return (
         <ul className="navbar">
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/dogs">Active Dogs</Link>
-            </li>
-            
+
             <button className="navbar__item active">
                 <Link className="navbar__link" to="/login">Login</Link>
             </button>

@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import "./CreateDog.css"
-import React from 'react';
+import React from 'react'
+import AddCircleIcon from '@mui/icons-material/AddCircle'
+import SaveAltIcon from '@mui/icons-material/SaveAlt'
+
 
 
 export const CreateDogForm = (props) => {
@@ -91,9 +94,9 @@ export const CreateDogForm = (props) => {
                         } />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="image"> Profile Photo </label>
+                    <label htmlFor="imageLocation"> Profile Photo </label>
                     <input required value={dog.image}
-                        type="file" id="image" className="form-control"
+                        type="text" id="imageLocation" className="form-control"
                         onChange={
                             (event) => {
                                 const copy = {...dog}
@@ -163,11 +166,12 @@ export const CreateDogForm = (props) => {
                     </div>
                 </fieldset>
 
-            <button 
+            <SaveAltIcon
                 onClick = {(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="createSubmitButton"
+                fontSize="large">
                 Create Dog
-            </button>
+            </SaveAltIcon>
 
         </form>
     )

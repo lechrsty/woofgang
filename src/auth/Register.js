@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
-import React from 'react';
-
+import React from 'react'
+import Axios from 'axios'
 
 export const Register = (props) => {
 
@@ -14,13 +14,34 @@ export const Register = (props) => {
 
     const [owner, setOwner] = useState({
         name: "",
-        image: "",
+        imageLocation: "",
         email: "",
         description: "",
-        phoneNumber: 0,
         cityId: 0,
         isRegistered: true
     })
+
+    // Cloudinary use states
+    // const [imageSelected, setImageSelected] = useState("");
+    // const [loading, setLoading] = useState(false);
+
+
+    
+    // // Cloudinary upload
+    // const uploadImage = () => {
+    //     const formData = new FormData()
+    //     formData.append('file', imageSelected)
+    //     formData.append('upload_preset', 'woofGang')
+    //     setLoading(true)
+        
+    //     Axios.post(
+    //         'https://api.cloudinary.com/v1_1/dmilofp0z/image/upload',
+    //         formData
+    //     ).then((res) => {
+    //     console.log(res)
+    //     })
+    // }
+     
 
     useEffect(
         () => {
@@ -48,10 +69,9 @@ export const Register = (props) => {
                     localStorage.setItem("woofGang_user", JSON.stringify({
                         id: createdUser.id,
                         name: createdUser.name,
-                        image: createdUser.image,
+                        imageLocation: createdUser.imageLocation,
                         email: createdUser.email,
                         description: createdUser.description,
-                        phoneNumber: createdUser.phoneNumber,
                         cityId: createdUser.cityId,
                         isRegistered: createdUser.isRegistered
                     }))
@@ -83,7 +103,6 @@ export const Register = (props) => {
         setOwner(copy)
     }
 
-
     return (
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
@@ -94,12 +113,22 @@ export const Register = (props) => {
                         type="text" id="name" className="form-control"
                         placeholder="Enter your name" required autoFocus />
                 </fieldset>
-                <fieldset>
-                    <label htmlFor="image"> Profile Photo </label>
+                {/* <fieldset>
+                        <label htmlFor="imageLocation">Upload a profile image</label >
+                        <input type="file" name="imageLocation" id="imageLocation" placeholder="Select an image" onChange={(event) => {setImageSelected(event.target.files[0])}} />
+                        {loading ? (
+                            <h3>Loading...</h3>
+                        ) : (
+                            <img src={imageSelected} style={{ width: '300px' }} />
+                        )}
+                        <button onClick={uploadImage}> Upload Image</button>
+                    </fieldset> */}
+                {/* <fieldset>
+                    <label htmlFor="imageLoaction"> Upload a Profile Photo </label>
                     <input onChange={updateOwner}
-                            type="file" id="image" className="form-control"
-                            required />
-                </fieldset>
+                        type="text" id="imageLocation" className="form-control"
+                        placeholder="Paste URL here" required autoFocus />
+                </fieldset> */}
                 <fieldset>
                     <label htmlFor="email"> Email address </label>
                     <input onChange={updateOwner}
@@ -112,12 +141,6 @@ export const Register = (props) => {
                     <input onChange={updateOwner}
                         type="text" id="description" className="form-control"
                         placeholder="Tell us about yourself" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="phoneNumber"> Phone number </label>
-                    <input onChange={updateOwner}
-                        type="number" id="phoneNumber" className="form-control"
-                        placeholder="Phone number" required />
                 </fieldset>
                 <fieldset>
                     <div className="form-control">

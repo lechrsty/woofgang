@@ -1,5 +1,7 @@
 import { useEffect, useState, Link } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import SaveAltIcon from '@mui/icons-material/SaveAlt'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 
 export const EditDogForm = () => {
 
@@ -118,7 +120,7 @@ export const EditDogForm = () => {
             <fieldset>
                     <label htmlFor="image"> Profile Photo </label>
                     <input required defaultValue={dog.image}
-                        type="file" id="image" className="form-control"
+                        type="text" id="image" className="form-control"
                         onChange={
                             (event) => {
                                 const copy = {...dog}
@@ -193,17 +195,19 @@ export const EditDogForm = () => {
                     </div>
                 </fieldset>
 
-            <button
+            <SaveAltIcon
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="saveButton"
+                fontSize="large">
                 Save Dog Profile
-            </button>
+            </SaveAltIcon>
 
-            <button
+            <DeleteForeverIcon
                 onClick={(clickEvent) => handleDeleteButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="deleteButton"
+                fontSize="large">
                 Delete Dog Profile
-            </button>
+            </DeleteForeverIcon>
         
         </form>
     )
