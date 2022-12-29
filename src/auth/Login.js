@@ -2,6 +2,13 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
+import {
+    MDBContainer,
+    MDBRow,
+    MDBCol
+}
+    from 'mdb-react-ui-kit';
+
 
 export const Login = () => {
     const [email, set] = useState("")
@@ -30,31 +37,37 @@ export const Login = () => {
 
     return (
 
-        <main className="container--login">
-            <section>
-                <form className="form--login" onSubmit={handleLogin}>
-                    <h1>WoofGang</h1>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input type="email"
-                            value={email}
-                            onChange={evt => set(evt.target.value)}
-                            className="form-control"
-                            placeholder="Email address"
-                            required autoFocus />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
-                    </fieldset>
-                </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
-            </section>
-        </main>
+        <MDBContainer className="container--login">
+            <MDBRow>
+                <MDBCol>
+                <div className="col-md-4">
+                    <section>
+                        <form className="form--login" onSubmit={handleLogin}>
+                            <h1>WoofGang</h1>
+                            <fieldset>
+                                <h2>Log in </h2>
+                                <input type="email"
+                                    value={email}
+                                    onChange={evt => set(evt.target.value)}
+                                    className="form-control"
+                                    placeholder="Email address"
+                                    required autoFocus />
+                            </fieldset>
+                                <button type="submit">
+                                    Submit
+                                </button>
+                        </form>
+                    </section>
+                    <section className="link--register">
+                        <Link to="/register">Not a member yet?</Link>
+                    </section>
+                </div>
+                </MDBCol>
+                {/* <MDBCol sm='6' className="col-md-8">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp"
+            alt="Login image" className="w-100" style={{objectFit: 'cover', objectPosition: 'left'}} />
+        </MDBCol> */}
+            </MDBRow>
+        </MDBContainer>
     )
 }
-

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import "./CreateDog.css"
 import React from 'react'
-import AddCircleIcon from '@mui/icons-material/AddCircle'
 import SaveAltIcon from '@mui/icons-material/SaveAlt'
 
 
@@ -17,6 +16,9 @@ export const CreateDogForm = (props) => {
     const [dropdownGender, setDropdownGender] = useState([])
     const [dropdownEnergyLevel, setDropdownEnergyLevel] = useState([])
 
+    const [singleDog, setSingleDog] = useState([])
+
+
     const [dog, setDog] = useState({
         ownerId: "",
         name: "",
@@ -24,9 +26,8 @@ export const CreateDogForm = (props) => {
         description: "",
         birthday: "",
         genderId: 0,
-        energyLevelId: 0,
+        energyLevelId: 0    
     })
-
 
     useEffect(
         () => {
@@ -46,7 +47,7 @@ export const CreateDogForm = (props) => {
             .then((arrayOfEnergyLevels) => {
                 setDropdownEnergyLevel(arrayOfEnergyLevels)
             })
-        },
+        }, 
         []
     )
 
@@ -60,8 +61,7 @@ export const CreateDogForm = (props) => {
             description: dog.description,
             birthday: dog.birthday,
             genderId: dog.genderId,
-            energyLevelId: dog.energyLevelId
-        }
+            energyLevelId: dog.energyLevelId        }
 
         return fetch(`http://localhost:8088/dogs`, {
             method: "POST",
@@ -72,7 +72,7 @@ export const CreateDogForm = (props) => {
         })
         .then(response => response.json())
         .then(() => {
-            navigate("/mydogs")
+            navigate(`/activities/${dog.id}`)
         })
     }
 
