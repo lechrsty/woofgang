@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import "./Dogs.css"
-import AddCircleIcon from '@mui/icons-material/AddCircle'
 import EditIcon from '@mui/icons-material/Edit'
 import * as React from 'react'
 import Card from '@mui/material/Card'
@@ -23,8 +22,8 @@ export const UserDogList = () => {
         () => {
             fetch(`http://localhost:8088/dogs?_expand=owner&ownerId=${woofGangUserObject.id}`)
                 .then(response => response.json())
-                .then((arrayOfDogs) => {
-                    setDog(arrayOfDogs)
+                .then((dog) => {
+                    setDog(dog)
                 })
         },
         [ownerId]

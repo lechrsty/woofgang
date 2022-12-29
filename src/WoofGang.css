@@ -1,22 +1,26 @@
 /* Import the google web fonts you want to use */
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300&family=Work+Sans&display=swap');
 
-
-/*Typography
 --------------------------------------------------------------*/
 body,
-button,
-input,
-select,
-textarea {
+button
+{
   color: #404040;
   font-family: 'Unbounded', cursive;
   font-size: 14px;
   line-height: 1.5;
 }
 
+input,
+select,
+section,
+textarea 
 body {
-    padding: 0 3rem;
+  color: #404040;
+  font-family: 'Work Sans';
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0 3rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -25,6 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+  font-family: 'Work Sans';
   margin-bottom: 1.5em;
 }
 
