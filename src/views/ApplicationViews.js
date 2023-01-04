@@ -1,16 +1,24 @@
-import { AnonymousViews } from "./AnonymousViews"
-import { UserViews } from "./UserViews"
+import { Route, Routes } from "react-router-dom"
+import { CreateDogForm } from "../dogs/CreateDogForm"
+import { EditDogForm } from "../dogs/EditDogForm"
+import { ProfileForm } from "../profileForm/ProfileForm"
+import { AddActivities } from "../dogs/AddActivities"
+import { DogContainer } from "../dogs/DogContainer"
+import { UserDogList } from "../dogs/UserDogList"
 
 export const ApplicationViews = () => {
+	return (
+        <Routes>
 
-    const localWoofGangUser = localStorage.getItem("woofGang_user")
-    const woofGangUserObject = JSON.parse(localWoofGangUser)
+            <Route path="home" element={ <></> } />
+            <Route path="profile" element={ <ProfileForm /> } />
+            <Route path="mydogs" element={ <UserDogList /> } />
+            <Route path="editdog/:dogId" element={ <EditDogForm /> } />
+            <Route path="createdog" element={ <CreateDogForm /> } />
+            <Route path="dogs" element={ <DogContainer /> } />
+            <Route path="activities/:dogId" element={ <AddActivities /> } />
 
-    if (woofGangUserObject.registered) {
-        return <UserViews />
-    }
-    else {
-        return <AnonymousViews />
-
-    }
+                
+        </Routes>
+    )
 }

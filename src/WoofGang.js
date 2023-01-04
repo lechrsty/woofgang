@@ -1,17 +1,16 @@
 import { Route, Routes } from "react-router-dom"
 import { Authorized } from "./views/Authorized"
 import { Login } from "./auth/Login"
-import { Register } from "./auth/Register"
 import { NavBar } from "./nav/NavBar"
 import { ApplicationViews } from "./views/ApplicationViews"
+import { Home } from "./views/Home"
 import "./WoofGang.css"
 
 
 export const WoofGang = () => {
 	return <Routes>
-		<Route path="/login" element={<Login />} />
-		<Route path="/register" element={<Register />} />
-		<Route path="/home" element={<></>} />
+		<Route path="/login" element={ <Login/> } />
+		<Route path="/" element={ <Home/> } />
 
 
 		<Route path="*" element={

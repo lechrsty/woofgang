@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import "./Dogs.css"
-import EditIcon from '@mui/icons-material/Edit'
 import * as React from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
 
 
 export const UserDogList = () => {
@@ -20,7 +18,7 @@ export const UserDogList = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/dogs?_expand=owner&ownerId=${woofGangUserObject.id}`)
+            fetch(`http://localhost:8088/dogs?_expand=gender&energyLevel&owner&ownerId=${woofGangUserObject.id}`)
                 .then(response => response.json())
                 .then((dog) => {
                     setDog(dog)
@@ -29,14 +27,17 @@ export const UserDogList = () => {
         [ownerId]
     )
 
-    return <>
+        return <>
 
-        <article className="dogs">
-        <Button onClick={event =>  window.location.href='/createdog'} className="createButton">Add a New Dog</Button>
+            <div className="list-header">
+                <button onClick={event => window.location.href = '/createdog'} className="btn mt-4">Add a New Dog</button>
+            </div>
 
-            {
-                dog.map(dog => {
-                    return <Card sx={{ maxWidth: 300 }} className="dog" key={`dogs--${dog.id}`}>
+            <article>
+                <div className="list-container">
+                    {
+                        dog.map(dog => {
+                            return <Card sx={{ maxWidth: 300 }} className="dog" key={`dogs--${dog.id}`}>
                     <CardMedia
                         component="img"
                         height="200"
@@ -44,24 +45,20 @@ export const UserDogList = () => {
                         image={dog?.image}
                         alt="doggo" />
                     <CardContent>
-                        <Typography variant="h5" component="div">
+                        <Typography variant="h4" component="div">
                         {dog.name}
                         </Typography>
                         <Typography paragraph color="text.secondary">
                         {dog.description}
                         </Typography>
-                        {/* <Typography variant="body2" color="text.secondary">
-                        I'm a {dog?.gender?.type}.
-                        </Typography>
-                        <Typography  variant="body2" color="text.secondary">
-                        I have a {dog?.energyLevel?.type} level of energy.
-                        </Typography> */}
+                        <button onClick={event =>  window.location.href=`/editdog/${dog.id}`} className="btn mt-4"> Edit </button>
                     </CardContent>
-                    <EditIcon onClick={event =>  window.location.href=`/editdog/${dog.id}`} className="editButton"></EditIcon>
                 </Card>
-                })
+                        })
 
-            }
-        </article>
-    </>
-}
+                    }
+                </div>
+            </article>
+        </>
+    }
+
