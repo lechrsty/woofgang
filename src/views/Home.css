@@ -1,0 +1,126 @@
+
+.container {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(https://images.pexels.com/photos/1074882/pexels-photo-1074882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-size: cover;
+    background-position: center;
+
+    /*  this is where the magic happens:  */
+    background-attachment: fixed;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+p {
+    max-width: 52ch;
+    line-height: 1.5;
+    padding: 1em;
+    color: #333;
+
+}
+
+p-hero {
+    max-width: 52ch;
+    line-height: 2.5;
+    padding: 1em;
+    margin-bottom: 10px;
+    letter-spacing: .5px;
+    color: rgb(255, 255, 255);
+    font-family: 'Unbounded', cursive;
+
+}
+
+a {
+    display: inline-block;
+    padding: 1em 3.5em;
+    background-color: var(--color);
+    /* color: rgb(255, 255, 255); */
+    --color:  rgb(238, 237, 237);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 0.3em;
+    font-weight: 700;
+    letter-spacing: .5px;
+    font-size: .875rem;
+}
+
+.blank,
+.other {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 60vh;
+    background: rgb(31, 32, 41);
+    background: radial-gradient(circle, rgba(31, 32, 41, 1) 0%, rgba(42, 43, 56, 1) 50%, rgba(196, 195, 202, 1) 100%);
+}
+
+.second {
+    background-image: url(https://images.pexels.com/photos/36372/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-attachment: fixed;
+    height: 1200px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-top: 1em;
+    color: #333;
+}
+
+.card>a {
+    margin-bottom: 2em;
+}
+
+.home-item {
+    display: flex;
+    max-width: 320px;
+    background-color: white;
+    ;
+    flex-direction: column;
+    align-items: center;
+    border-radius: .5em;
+    -webkit-box-shadow: 0px 29px 38px -15px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 0px 29px 38px -15px rgba(0, 0, 0, 0.43);
+    box-shadow: 0px 29px 38px -15px rgba(0, 0, 0, 0.43);
+}
+
+.img {
+    width: 90%;
+    height: 200px;
+    background-color: lightgrey;
+    background-size: cover;
+    background-position: center;
+    margin-top: 20px;
+    border-radius: .3em;
+    ;
+}
+
+.img-first {
+    background-image: url(https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+}
+
+.img-second {
+    background-image: url(https://images.pexels.com/photos/1633522/pexels-photo-1633522.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+}
+
+.img-third {
+    background-image: url(https://images.pexels.com/photos/5745228/pexels-photo-5745228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+}
+
+.second {
+    flex-direction: row;
+    gap: 1.6em;
+}

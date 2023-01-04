@@ -1,3 +1,33 @@
-.saveButton {
-    float: right
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+.profile-container {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.profile-card-front {
+    width: 100%;
+    height: 520px;
+    background-color: #2a2b38;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 300%;
+    position: absolute;
+    border-radius: 6px;
+    left: 0;
+    top: 0;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }

@@ -1,3 +1,4 @@
+
 import { Navigate, useLocation } from "react-router-dom"
 
 export const Authorized = ({ children }) => {
@@ -13,4 +14,3 @@ export const Authorized = ({ children }) => {
         state={{ location }} />
     }
 }
-

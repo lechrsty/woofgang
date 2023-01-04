@@ -1,7 +1,6 @@
-/* Import the google web fonts you want to use */
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300&family=Work+Sans&display=swap');
 
---------------------------------------------------------------*/
+--------------------------------------------------------------
 body,
 button
 {
@@ -46,4 +45,4 @@ p {
 .show.active {
   transform: translateY(100px) scale(0) rotateY(180deg);
   opacity: 0;
-}
+} 
