@@ -10,9 +10,7 @@ WoofGang is a front end CRUD web application that helps you find the right teamm
 [Features](https://github.com/lechrsty/woofgang/blob/main/README.md#features)
 
 # Homepage
-
-Uploading Loom Message - 19 January 2023.mp4…
-
+https://user-images.githubusercontent.com/111799280/213581882-6fc453c3-ab68-4cd4-9d31-15d151830b1d.mp4
 
 # Toggle switch for Login/Register
 
