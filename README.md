@@ -23,3 +23,5 @@ WoofGang is a front end CRUD web application that helps you find the right teamm
 
 ### View gallery of dog profiles to connect with
 
+### Utilize the search filter
+
