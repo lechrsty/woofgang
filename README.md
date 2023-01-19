@@ -5,11 +5,11 @@ WoofGang is a front end CRUD web application that helps you find the right teamm
 ## Table of Contents
 https://github.com/lechrsty/woofgang/blob/main/README.md#homepage
 
-## Homepage
+# Homepage
 
-## Toggle switch for Login/Register
+# Toggle switch for Login/Register
 
-## Features
+# Features
 
 ### Add a dog
 
