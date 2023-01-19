@@ -2,6 +2,12 @@
 
 WoofGang is a front end CRUD web application that helps you find the right teammate for your dog(s) to learn, grow, and play with.
 
+## Table of Contents
+
+## Homepage
+
+## Toggle switch for Login/Register
+
 ## Features
 
 ### Add a dog
