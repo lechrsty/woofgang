@@ -11,9 +11,7 @@ Woof Gang is a front end CRUD web application that helps you find the right team
 
 # Homepage
 
-
-https://user-images.githubusercontent.com/111799280/215661160-077504ea-624f-4235-871d-bcd707dd7bea.mov
-
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/111799280/215662573-805d75e9-a448-49e7-8b3b-e7c544c4a062.gif)
 
 # Toggle switch for Login/Register
 
