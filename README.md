@@ -1,6 +1,6 @@
-# WoofGang
+# Woof Gang
 
-WoofGang is a front end CRUD web application that helps you find the right teammate for your dog(s) to learn, grow, and play with.
+Woof Gang is a front end CRUD web application that helps you find the right teammate for your dog(s) to learn, grow, and play with.
 
 ## Table of Contents
 [Homepage](https://github.com/lechrsty/woofgang/blob/main/README.md#homepage)
@@ -10,7 +10,10 @@ WoofGang is a front end CRUD web application that helps you find the right teamm
 [Features](https://github.com/lechrsty/woofgang/blob/main/README.md#features)
 
 # Homepage
-https://user-images.githubusercontent.com/111799280/213581882-6fc453c3-ab68-4cd4-9d31-15d151830b1d.mp4
+
+
+https://user-images.githubusercontent.com/111799280/215661160-077504ea-624f-4235-871d-bcd707dd7bea.mov
+
 
 # Toggle switch for Login/Register
 
