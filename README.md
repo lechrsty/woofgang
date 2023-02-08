@@ -1,6 +1,6 @@
 # Woof Gang
 
-Woof Gang is a front end CRUD web application that helps you find the right teammate for your dog(s) to learn, grow, and play with.
+Woof Gang is a front end CRUD web application utilizing RESTful API that helps you find the right teammate for your dog(s) to learn, grow, and play with.
 
 ## Table of Contents
 [Homepage](https://github.com/lechrsty/woofgang/blob/main/README.md#homepage)
